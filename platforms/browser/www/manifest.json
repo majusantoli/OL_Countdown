@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Contador das Olimpíadas",
+  "short_name": "Contador das Olimpíadas",
+  "version": "br.com.olimpiadas.app",
+  "description": "Aplicativo de contagem regressiva para a próxima Olimpíadas.",
+  "author": "Outfox",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#ee6e73"
+}

@@ -1,0 +1,272 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    background:url(../img/pista_olimpiadas.png) no-repeat center top;
+}
+
+/* Portrait layout (default) */
+.app {
+    padding-top: 40%;
+    text-align: center;
+    
+    /*background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    /*position:absolute;             /* position in the center of the screen */
+    /*left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    /*width:225px;                   /* text area width */
+    /*text-align:center;
+    /*padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    /*margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-65px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+    color: #151313;
+    font-style: oblique;
+    font-weight: 600;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.waiting {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+/*CONTADOR */
+
+.relogio{
+     padding: 10px; 
+     border-radius: 3px; 
+     padding-bottom: initial;
+     color: #fff;
+}
+
+.numero{
+    padding: 15px;
+    border-radius: 3px;
+    background: #2f2f2d;
+    display: inline-block;
+    font-size: 20px;
+}
+
+
+/*MENU*/
+
+
+.title { text-align: center; }
+
+.title a {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 24px;
+    color: #6e6e6e;
+    text-decoration: none;
+}
+
+.title a:hover { text-decoration: underline; }
+
+.panel {
+    margin: 15px auto 15px;
+    max-width: 265px;
+}
+
+.admin-panel {
+    padding: 12px 0;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.2 );
+}
+
+.admin-panel .text {
+    color: #888888;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.admin-panel .fa-cog {
+    float: right;
+    margin-right: 10px;
+    font-size: 20px;
+    color: #888888;
+}
+
+.admin-panel :hover { cursor: pointer; color: #555555; }
+
+input#toggle { display: none; }
+input#toggle ~ .menu-panel { display: none; }
+input#toggle:checked ~ .menu-panel { display: block; }
+
+.menu-panel {
+    margin-top: 14px;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.2 );
+}
+
+.arrow {
+    position: absolute;
+    top: 111px;
+    margin-left: 15px;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 9px solid #f8f8f8;
+}
+
+.menu-panel .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-panel .column-left {
+    float: left;
+    width: 85%;
+    margin-left: 10px;
+}
+
+.menu-panel .column-right {
+    float: right;
+    width: 15%;
+    padding: 10px 8px;
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+.menu-panel .row:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.menu-panel a {
+    color: #888888;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.menu-panel i {
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+}
+
+.menu-panel:hover .row:hover { background: #ebebeb; color: #555555; border-radius: 3px; }
+
+.menu-panel:hover a { color: #bebebe; }
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+/*RODAPÉ*/
+
+.footer{
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
