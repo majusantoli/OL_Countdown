@@ -73,7 +73,7 @@ function sobreNos(){
     navigator.notification.alert(
     'Somos uma empresa de Marketing e Tecnologia, sempre buscando ideias e soluções para nossos clientes!',  // message
     'Outfox',            // title
-    'Ok'                  // buttonName
+    'Outfox'            // buttonName
 );
 }
 
